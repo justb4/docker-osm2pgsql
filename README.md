@@ -1,4 +1,9 @@
 # Docker Image for osm2pgsql
+
+![GitHub license](https://img.shields.io/github/license/justb4/docker-osm2pgsql)
+![GitHub release](https://img.shields.io/github/release/justb4/docker-osm2pgsql.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/justb4/osm2pgsql.svg)
+
 Docker Image for [osm2pgsql](https://osm2pgsql.org/) and supporting tools like Osmosis.
 
 Credits: https://github.com/Overv/openstreetmap-tile-server/

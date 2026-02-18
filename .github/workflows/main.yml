@@ -33,4 +33,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: latest,1.11.0-1
+          tags: justb4/osm2pgsql:latest,justb4/osm2pgsql:1.11.0-1

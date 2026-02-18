@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM ubuntu:noble
 
 LABEL maintainer="Just van den Broecke <justb4@gmail.com>"
 
@@ -17,16 +17,10 @@ ENV TZ=${TIMEZONE} \
 
 RUN \
 	apt-get update && apt-get --no-install-recommends install  -y ${BUILD_DEPS} ${PACKAGES} \
-	&& cp /usr/share/zoneinfo/${TZ} /etc/localtime\
 	&& dpkg-reconfigure tzdata \
-	# Locale
-	&& sed -i -e "s/# ${LOCALE} UTF-8/${LOCALE} UTF-8/" /etc/locale.gen \
-    && dpkg-reconfigure --frontend=noninteractive locales \
+    && locale-gen ${LOCALE} \
     && update-locale LANG=${LOCALE} \
-	&& apt-get remove --purge ${BUILD_DEPS} -y \
-    && apt autoremove -y  \
     && rm -rf /var/lib/apt/lists/*
-
 
 WORKDIR ${MY_HOME}
 ADD entry.sh ${MY_HOME}/
